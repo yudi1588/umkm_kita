@@ -1,0 +1,243 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: min(1200px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* ==============================
+   TOP HEADER
+============================== */
+
+.top-header {
+    background: #0752c9;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+.top-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.top-header-right {
+    text-align: right;
+}
+
+/* ==============================
+   MAIN HEADER
+============================== */
+
+.main-header {
+    background: #fff;
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.header-content > .col-md-2 {
+    flex: 0 0 100px;
+}
+
+.header-content > .col-md-5:not(.header-action) {
+    flex: 1 1 0;
+}
+
+.logo img {
+    width: 100px;
+    max-height: -100px;
+    object-fit: contain;
+}
+
+.header-search {
+    position: relative;
+    border: 2px solid #0752c9;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 40px;
+    display: flex;
+}
+
+.header-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    font-size: 13px;
+}
+
+.header-search button {
+    background: #fff;
+    border: none;
+    padding: 0 15px;
+    color: #555;
+    font-size: 17px;
+}
+
+.header-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+.header-cart {
+    color: #111;
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.cart-icon {
+    display: block;
+    position: relative;
+    font-size: 23px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: #0752ff;
+    color: #fff;
+    font-size: 10px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    line-height: 19px;
+}
+
+.btn-login {
+    background: #0752ff;
+    color: #fff;
+    padding: 9px 15px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-login:hover {
+    background: #003da8;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* =========================
+   STICKY HEADER
+========================= */
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+}
+
+.top-header,
+.main-header,
+.main-navigation {
+    position: relative;
+}
+
+/* Bayangan ketika header menempel */
+.sticky-header {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.main-navigation {
+    background: #0752c9;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu > li {
+    position: relative;
+}
+
+.nav-menu > li > a {
+    display: block;
+    padding: 14px 25px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-menu > li.active > a,
+.nav-menu > li:hover > a {
+    color: #ffb000;
+}
+
+.nav-menu .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: none;
+    border-radius: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+}
+
+.nav-menu .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-menu .dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.nav-menu .dropdown-menu li a:hover {
+    background: #0752c9;
+    color: #fff;
+}
+
+.container > h2 {
+    line-height: 1.6;
+}
