@@ -1,0 +1,612 @@
+
+/* HOMEPAGE BANNER */
+.home-banner {
+    background: #f5f7fa;
+    padding: 70px 0;
+}
+
+.home-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+.home-banner .home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.home-text {
+    flex: 1;
+}
+
+.home-text span {
+    color: #0755b8;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.home-text h1 {
+    font-size: 42px;
+    line-height: 1.3;
+    color: #222;
+    margin: 15px 0;
+}
+
+.home-text p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.btn-shop {
+    display: inline-block;
+    background: #0755b8;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-shop:hover {
+    background: #003d8f;
+    color: white;
+}
+
+.home-image {
+    flex: 1;
+    text-align: center;
+}
+
+.home-image img {
+    width: 200%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* KATEGORI */
+.home-category {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.home-category h2 {
+    color: #222;
+    font-size: 28px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .home-banner .home-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-text h1 {
+        font-size: 30px;
+    }
+}
+
+/* =========================
+   KATEGORI PRODUK
+========================= */
+
+.home-category {
+    padding: 70px 0;
+    background: #fff;
+}
+
+.category-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.category-heading span {
+    color: #e8a900;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.category-heading h2 {
+    color: #102d59;
+    font-size: 32px;
+    margin: 12px 0;
+    font-weight: 700;
+}
+
+.category-heading p {
+    color: #777;
+    font-size: 15px;
+}
+
+/* LIST KATEGORI */
+
+.category-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.category-card {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 35px 20px;
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-7px);
+    border-color: #e8b323;
+    box-shadow: 0 8px 25px rgba(0, 35, 85, 0.10);
+}
+
+.category-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #edf3ff;
+    border-radius: 50%;
+}
+
+.category-icon i {
+    font-size: 30px;
+    color: #104b9b;
+}
+
+.category-card h3 {
+    color: #142f55;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.category-card p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* RESPONSIVE KATEGORI PRODUK */
+
+@media (max-width: 992px) {
+    .category-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .category-list {
+        grid-template-columns: 1fr;
+    }
+
+    .category-heading h2 {
+        font-size: 25px;
+    }
+}
+
+
+/* =========================
+   CATEGORY SEARCH BAR
+========================= */
+
+.category-search {
+    padding: 35px 0;
+    background: #fff;
+}
+
+.category-search-container {
+    width: 90%;
+    max-width: 1450px;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 20px 30px;
+
+    background: #0751c7;
+    border-radius: 12px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(220px, 0.8fr);
+    gap: 35px;
+    align-items: center;
+}
+
+/* JUDUL */
+
+.category-navigation,
+.product-search {
+    width: 100%;
+    min-width: 0;
+}
+
+.category-navigation h3,
+.product-search h3 {
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    margin: 0 0 15px;
+}
+
+.category-navigation h3 span,
+.product-search h3 span {
+    color: #ffc400;
+}
+
+/* NAVIGASI KATEGORI */
+
+.category-nav-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* AREA SCROLL KATEGORI */
+
+.category-scroll {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex: 1;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    white-space: nowrap;
+    scrollbar-width: none;
+
+    scroll-behavior: auto;
+    cursor: grab;
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.category-scroll.active {
+    cursor: grabbing;
+}
+
+/* ITEM KATEGORI */
+
+.category-scroll a {
+    flex: 0 0 auto;
+    padding: 13px 22px;
+
+    background: #fff;
+    color: #0751c7;
+
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 600;
+
+    border-radius: 6px;
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+.category-scroll a:hover {
+    background: #ffc400;
+    color: #102d59;
+}
+
+/* TOMBOL PANAH */
+
+.category-arrow {
+    flex: 0 0 20px;
+
+    border: none;
+    background: transparent;
+
+    color: #fff;
+    font-size: 27px;
+    font-weight: bold;
+
+    cursor: pointer;
+    padding: 0;
+
+    transition: 0.3s;
+}
+
+.category-arrow:hover {
+    color: #ffc400;
+}
+
+/* PENCARIAN PRODUK */
+
+.product-search form {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 46px;
+
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-search input {
+    flex: 1;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    padding: 0 18px;
+    font-size: 14px;
+}
+
+.product-search button {
+    flex: 0 0 48px;
+
+    height: 46px;
+    border: none;
+
+    background: #fff;
+    color: #555;
+
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.product-search button:hover {
+    color: #0751c7;
+}
+
+/* RESPONSIVE CATEGORY SEARCH */
+
+@media (max-width: 900px) {
+    .category-search-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-search-container {
+        width: 92%;
+        padding: 20px 15px;
+    }
+
+    .category-scroll a {
+        padding: 11px 15px;
+        font-size: 12px;
+    }
+}
+
+
+/* =========================
+   DAFTAR MITRA UMKM
+========================= */
+
+.partner-section {
+    padding: 65px 0;
+    background: #f7f9fc;
+}
+
+.partner-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.partner-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    color: #e8b323;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.partner-heading h2 {
+    color: #142f55;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.partner-heading p {
+    color: #777;
+    font-size: 15px;
+    margin: 0;
+}
+
+/* KARTU MITRA */
+
+.partner-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.partner-card {
+    background: #fff;
+    border: 1px solid #e9edf3;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 35, 85, 0.10);
+}
+
+/* AREA GAMBAR / LOGO */
+
+.partner-image {
+    height: 180px;
+    background: #eaf0fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.partner-placeholder {
+    width: 90px;
+    height: 90px;
+    background: #0751c7;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.verified-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #e7f8ed;
+    color: #168345;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 7px 10px;
+    border-radius: 20px;
+}
+
+/* INFORMASI MITRA */
+
+.partner-info {
+    padding: 22px;
+}
+
+.partner-category {
+    color: #0751c7;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.partner-info h3 {
+    color: #142f55;
+    font-size: 19px;
+    margin: 10px 0;
+}
+
+.partner-info p {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.partner-info p i {
+    color: #0751c7;
+    margin-right: 5px;
+}
+
+.partner-link {
+    display: inline-block;
+    color: #0751c7;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.partner-link:hover {
+    color: #e5a900;
+}
+
+/* LIHAT SEMUA MITRA */
+
+.partner-more {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.partner-more a {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid #0751c7;
+    border-radius: 5px;
+    color: #0751c7;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.partner-more a:hover {
+    background: #0751c7;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .partner-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .partner-list {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-heading h2 {
+        font-size: 25px;
+    }
+}
+
+
+.partner-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.partner-more a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 35px;
+    height: 35px;
+    padding: 0 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.partner-more a:hover,
+.partner-more a.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.partner-more span {
+    color: #777;
+}
+
+.partner-more .arrow {
+    font-size: 18px;
+}

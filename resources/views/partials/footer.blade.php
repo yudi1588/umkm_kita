@@ -77,7 +77,7 @@
         <div class="footer-bottom-container">
             <p>
                 Copyright &copy; {{ date('Y') }} UMKM Kita
-                | Developed By :
+                | Team Developed By :
                 <a href="#">White Owl</a>
             </p>
         </div>
