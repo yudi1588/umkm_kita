@@ -27,7 +27,7 @@
                 <div class="col-md-2 col-sm-3 col-xs-4">
                     <a href="{{ url('/') }}" class="logo">
                         <img
-                            src="{{ asset('../assets/user/img/umkm.png') }}"
+                            src="{{ asset('assets/user/img/umkm.png') }}"
                             alt="Logo UMKM"
                             class="img-responsive">
                     </a>
@@ -35,11 +35,12 @@
 
                 <!-- SEARCH -->
                 <div class="col-md-5 col-sm-5 col-xs-8">
-                    <form action="#" method="GET" class="header-search">
+                    <form action="{{ route('products') }}" method="GET" class="header-search">
                         <input
                             type="text"
-                            name="keyword"
+                            name="q"
                             placeholder="Cari Produk..."
+                            value="{{ request('q') }}"
                             autocomplete="off">
 
                         <button type="submit">
@@ -66,7 +67,6 @@
                     </a>
 
                 </div>
-
             </div>
         </div>
     </header>
@@ -76,12 +76,12 @@
         <div class="container">
             <ul class="nav-menu">
 
-                <li class="active">
+                <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
                     <a href="{{ url('/') }}">Beranda</a>
                 </li>
 
-                <li>
-                    <a href="#">Produk</a>
+                <li class="{{ request()->routeIs('products') ? 'active' : '' }}">
+                    <a href="{{ route('products') }}">Produk</a>
                 </li>
 
                 <li class="dropdown">
@@ -90,13 +90,10 @@
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Makanan & Kuliner</a></li>
-                        <li><a href="#">Fashion & Pakaian</a></li>
-                        <li><a href="#">Oleh-Oleh Khas Jember</a></li>
-                        <li><a href="#">Kerajinan & Craft</a></li>
-                        <li><a href="#">Kecantikan & Perawatan</a></li>
-                        <li><a href="#">Perlengkapan Rumah Tangga</a></li>
-                        <li><a href="#">Elekronik & Peralatan Komputer</a></li>
+                        <li><a href="{{ route('products', ['category' => 'kuliner']) }}">Makanan & Minuman</a></li>
+                        <li><a href="{{ route('products', ['category' => 'fashion']) }}">Fashion</a></li>
+                        <li><a href="{{ route('products', ['category' => 'kerajinan']) }}">Kerajinan</a></li>
+                        <li><a href="{{ route('products', ['category' => 'pertanian']) }}">Pertanian</a></li>
                     </ul>
                 </li>
 
@@ -107,5 +104,5 @@
             </ul>
         </div>
     </nav>
-
+    </div>
     </div>

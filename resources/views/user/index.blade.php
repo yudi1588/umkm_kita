@@ -14,7 +14,7 @@
                 Kecil, dan Menengah (UMKM) dengan masyarakat untuk memperkenalkan produk lokal, 
                 memperluas jangkauan pemasaran, serta mendukung pertumbuhan ekonomi masyarakat.
             </p>
-            <a href="#" class="btn-shop">Belanja Sekarang</a>
+            <a href="{{ route('products') }}" class="btn-shop">Belanja Sekarang</a>
         </div>
 
         <div class="home-image">
@@ -42,16 +42,10 @@
                 </button>
 
                 <div class="category-scroll" id="categoryScroll">
-                    <a href="#">Makanan & Kuliner</a>
-                    <a href="#">Fashion & Pakaian</a>
-                    <a href="#">Oleh-Oleh Khas Jember</a>
-                    <a href="#">Kerajinan & Craft</a>
-                    <a href="#">Kecantikan & Perawatan</a>
-                    <a href="#">Perlengkapan Rumah Tangga</a>
-                    <a href="#">Elektronik & Peralatan Komputer</a>
-                    <a href="#">Pertanian</a>
-                    <a href="#">Furnitur</a>
-                    <a href="#">Jasa</a>
+                    <a href="{{ route('products', ['category' => 'kuliner']) }}">Makanan & Kuliner</a>
+                    <a href="{{ route('products', ['category' => 'fashion']) }}">Fashion & Pakaian</a>
+                    <a href="{{ route('products', ['category' => 'kerajinan']) }}">Kerajinan & Craft</a>
+                    <a href="{{ route('products', ['category' => 'pertanian']) }}">Pertanian</a>
                 </div>
 
                 <button type="button"
@@ -67,7 +61,7 @@
         <div class="product-search">
             <h3><span>Cari</span> Produk</h3>
 
-            <form action="{{ route('home') }}" method="GET">
+            <form action="{{ route('products') }}" method="GET">
                 <input type="text"
                        name="q"
                        placeholder="Cari produk..."
@@ -97,7 +91,7 @@
 
         <div class="category-list">
 
-            <a href="#" class="category-card">
+            <a href="{{ route('products', ['category' => 'kuliner']) }}" class="category-card">
                 <div class="category-icon">
                     <i class="fa fa-cutlery"></i>
                 </div>
@@ -105,7 +99,7 @@
                 <p>Produk kuliner khas dan olahan lokal.</p>
             </a>
 
-            <a href="#" class="category-card">
+            <a href="{{ route('products', ['category' => 'fashion']) }}" class="category-card">
                 <div class="category-icon">
                     <i class="fa fa-shopping-bag"></i>
                 </div>
@@ -113,7 +107,7 @@
                 <p>Pakaian, aksesoris, dan produk fashion.</p>
             </a>
 
-            <a href="#" class="category-card">
+            <a href="{{ route('products', ['category' => 'kerajinan']) }}" class="category-card">
                 <div class="category-icon">
                     <i class="fa fa-gift"></i>
                 </div>
@@ -121,7 +115,7 @@
                 <p>Kerajinan tangan dan produk kreatif.</p>
             </a>
 
-            <a href="#" class="category-card">
+            <a href="{{ route('products', ['category' => 'pertanian']) }}" class="category-card">
                 <div class="category-icon">
                     <i class="fa fa-leaf"></i>
                 </div>
