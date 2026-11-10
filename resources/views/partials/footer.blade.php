@@ -31,13 +31,10 @@
             <div class="footer-column">
                 <h3>KATEGORI PRODUK</h3>
                 <ul>
-                    <li><a href="#">Makanan & Minuman</a></li>
-                    <li><a href="#">Fashion & Pakaian</a></li>
-                    <li><a href="#">Oleh-Oleh Khas Daerah</a></li>
-                    <li><a href="#">Kerajinan & Craft</a></li>
-                    <li><a href="#">Kecantikan & Perawatan</a></li>
-                    <li><a href="#">Perlengkapan Rumah Tangga</a></li>
-                    <li><a href="#">Elektronik & Komputer</a></li>
+                    <li><a href="{{ route('products', ['category' => 'kuliner']) }}">Makanan & Minuman</a></li>
+                    <li><a href="{{ route('products', ['category' => 'fashion']) }}">Fashion & Pakaian</a></li>
+                    <li><a href="{{ route('products', ['category' => 'kerajinan']) }}">Kerajinan & Craft</a></li>
+                    <li><a href="{{ route('products', ['category' => 'pertanian']) }}">Pertanian</a></li>
                 </ul>
             </div>
 
