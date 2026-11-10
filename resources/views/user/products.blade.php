@@ -69,7 +69,7 @@
             @if ($productCount > 0)
                 <div class="catalog-grid">
                     @foreach ($products as $product)
-                        <article class="catalog-card">
+                        <a href="{{ route('products.show', $product['slug']) }}" class="catalog-card" aria-label="Lihat detail {{ $product['name'] }}" style="color: inherit; text-decoration: none !important;">
                             <div class="catalog-product-image">
                                 <img src="{{ asset($product['image']) }}" alt="{{ $product['name'] }}" loading="lazy">
                             </div>
@@ -82,7 +82,7 @@
                                     {{ $product['location'] }}
                                 </div>
                             </div>
-                        </article>
+                        </a>
                     @endforeach
                 </div>
             @else

@@ -42,4 +42,22 @@ class ProductsPageTest extends TestCase
             ->assertSeeText('Produk belum ditemukan')
             ->assertDontSeeText('Keripik Singkong UMKM');
     }
+
+    public function test_it_opens_a_product_detail_page(): void
+    {
+        $response = $this->get('/produk/keripik-singkong-umkm');
+
+        $response->assertOk()
+            ->assertSeeText('Keripik Singkong UMKM')
+            ->assertSeeText('Deskripsi Produk')
+            ->assertSeeText('Beli Sekarang')
+            ->assertSeeText('Produk Terkait');
+    }
+
+    public function test_product_cards_link_to_their_detail_page(): void
+    {
+        $response = $this->get('/produk');
+
+        $response->assertSee(route('products.show', 'keripik-singkong-umkm'));
+    }
 }
