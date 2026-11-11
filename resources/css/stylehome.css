@@ -56,16 +56,39 @@
     color: white;
 }
 
+
+/* =========================
+   GAMBARBANNER HOME
+========================= */
+
 .home-image {
-    flex: 1;
-    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .home-image img {
-    width: 200%;
-    max-width: 800px;
+    display: block;
+    width: 100%;
     height: auto;
+    max-width: 100%;
     object-fit: contain;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    .home-image img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* HP */
+@media (max-width: 480px) {
+    .home-image img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 /* KATEGORI */
@@ -222,68 +245,62 @@
     align-items: center;
 }
 
-/* JUDUL */
 
-.category-navigation,
-.product-search {
+
+/* =========================
+   KATEGORI SLIDER
+========================= */
+
+.category-navigation {
     width: 100%;
     min-width: 0;
 }
 
-.category-navigation h3,
-.product-search h3 {
+.category-navigation h3 {
     color: #fff;
     text-align: center;
     font-size: 17px;
     margin: 0 0 15px;
 }
 
-.category-navigation h3 span,
-.product-search h3 span {
+.category-navigation h3 span {
     color: #ffc400;
 }
 
-/* NAVIGASI KATEGORI */
-
-.category-nav-content {
+.kategori-slider-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
+    position: relative;
     width: 100%;
     min-width: 0;
+    gap: 10px;
 }
 
-/* AREA SCROLL KATEGORI */
-
-.category-scroll {
+.kategori-slider {
     display: flex;
     align-items: center;
     gap: 10px;
 
+    overflow-x: auto;
+    scroll-behavior: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    padding: 5px 0;
     flex: 1;
     min-width: 0;
-
-    overflow-x: auto;
-    overflow-y: hidden;
+    max-width: 100%;
 
     white-space: nowrap;
-    scrollbar-width: none;
-
-    scroll-behavior: auto;
     cursor: grab;
 }
 
-.category-scroll::-webkit-scrollbar {
+.kategori-slider::-webkit-scrollbar {
     display: none;
 }
 
-.category-scroll.active {
-    cursor: grabbing;
-}
-
-/* ITEM KATEGORI */
-
-.category-scroll a {
+.kategori-slider a {
     flex: 0 0 auto;
     padding: 13px 22px;
 
@@ -296,20 +313,16 @@
 
     border-radius: 6px;
     white-space: nowrap;
-
     transition: 0.3s;
 }
 
-.category-scroll a:hover {
+.kategori-slider a:hover {
     background: #ffc400;
     color: #102d59;
 }
 
-/* TOMBOL PANAH */
-
 .category-arrow {
-    flex: 0 0 20px;
-
+    flex-shrink: 0;
     border: none;
     background: transparent;
 
@@ -318,16 +331,34 @@
     font-weight: bold;
 
     cursor: pointer;
-    padding: 0;
-
-    transition: 0.3s;
+    padding: 0 3px;
 }
 
 .category-arrow:hover {
     color: #ffc400;
 }
 
-/* PENCARIAN PRODUK */
+/* =========================
+   PENCARIAN PRODUK
+========================= */
+
+.product-search {
+    width: 100%;
+    min-width: 0;
+}
+
+.product-search h3 {
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    margin: 0 0 15px;
+}
+
+.product-search h3 span {
+    color: #ffc400;
+}
+
+/* FORM PENCARIAN */
 
 .product-search form {
     display: flex;
@@ -343,16 +374,28 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* INPUT */
+
 .product-search input {
     flex: 1;
     min-width: 0;
 
+    height: 100%;
+    padding: 0 18px;
+
     border: none;
     outline: none;
 
-    padding: 0 18px;
+    background: transparent;
     font-size: 14px;
+    color: #333;
 }
+
+.product-search input::placeholder {
+    color: #888;
+}
+
+/* TOMBOL SEARCH */
 
 .product-search button {
     flex: 0 0 48px;
@@ -365,6 +408,8 @@
 
     font-size: 19px;
     cursor: pointer;
+
+    transition: 0.3s;
 }
 
 .product-search button:hover {
@@ -455,28 +500,46 @@
 
 /* AREA GAMBAR / LOGO */
 
+
+/* FOTO SAMPUL DAN PROFIL MITRA */
+
 .partner-image {
+    position: relative;
+    width: 100%;
     height: 180px;
     background: #eaf0fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
 }
 
-.partner-placeholder {
-    width: 90px;
-    height: 90px;
-    background: #0751c7;
-    color: #fff;
+/* FOTO SAMPUL */
+.partner-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FOTO PROFIL */
+.partner-profile {
+    position: absolute;
+    left: 20px;
+    bottom: -35px;
+    width: 75px;
+    height: 75px;
+    border: 4px solid #fff;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    font-weight: 700;
+    background: #fff;
+    overflow: hidden;
+    z-index: 2;
 }
 
+.partner-avatar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BADGE TERVERIFIKASI */
 .verified-badge {
     position: absolute;
     top: 12px;
@@ -487,12 +550,12 @@
     font-weight: 600;
     padding: 7px 10px;
     border-radius: 20px;
+    z-index: 3;
 }
 
 /* INFORMASI MITRA */
-
 .partner-info {
-    padding: 22px;
+    padding: 45px 22px 22px;
 }
 
 .partner-category {
@@ -528,87 +591,6 @@
 
 .partner-link:hover {
     color: #e5a900;
-}
-
-/* LIHAT SEMUA MITRA */
-
-.partner-more {
-    text-align: center;
-    margin-top: 35px;
-}
-
-.partner-more a {
-    display: inline-block;
-    padding: 12px 25px;
-    border: 1px solid #0751c7;
-    border-radius: 5px;
-    color: #0751c7;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.partner-more a:hover {
-    background: #0751c7;
-    color: #fff;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-    .partner-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .partner-list {
-        grid-template-columns: 1fr;
-    }
-
-    .partner-heading h2 {
-        font-size: 25px;
-    }
-}
-
-
-.partner-more {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 30px;
-}
-
-.partner-more a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 35px;
-    height: 35px;
-    padding: 0 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.partner-more a:hover,
-.partner-more a.active {
-    background: #3b82f6;
-    color: white;
-    border-color: #3b82f6;
-}
-
-.partner-more span {
-    color: #777;
-}
-
-.partner-more .arrow {
-    font-size: 18px;
 }
 
 /* PRODUCT CATALOG */
@@ -1022,5 +1004,127 @@
 
     .catalog-product-price {
         font-size: 12px;
+    }
+}
+
+
+/* ===============================
+   PAGINATION MITRA UMKM
+================================ */
+
+.partner-more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin: 35px auto 10px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* TOMBOL NOMOR DAN PANAH */
+.partner-more a {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #e0e6ef;
+    border-radius: 8px;
+
+    background: #fff;
+    color: #52627a;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all .25s ease;
+}
+
+/* HOVER */
+.partner-more a:hover {
+    background: #0751c7;
+    color: #fff;
+    border-color: #0751c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(7, 81, 199, .18);
+}
+
+/* HALAMAN AKTIF */
+.partner-more a.active {
+    background: #0751c7;
+    color: #fff;
+    border-color: #0751c7;
+    box-shadow: 0 3px 8px rgba(7, 81, 199, .2);
+}
+
+/* TOMBOL PANAH */
+.partner-more a.arrow {
+    color: #0751c7;
+    font-size: 20px;
+    background: #f4f7fc;
+}
+
+.partner-more a.arrow:hover {
+    background: #0751c7;
+    color: #fff;
+}
+
+/* TITIK-TITIK */
+.partner-more span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    color: #8995a7;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    .partner-more {
+        gap: 6px;
+    }
+
+    .partner-more a {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+        font-size: 12px;
+    }
+
+    .partner-more a.arrow {
+        font-size: 18px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .partner-more {
+        gap: 4px;
+        padding: 0 5px;
+    }
+
+    .partner-more a {
+        width: 29px;
+        height: 32px;
+        flex-basis: 29px;
+        border-radius: 6px;
+        font-size: 11px;
+    }
+
+    .partner-more a.arrow {
+        font-size: 16px;
+    }
+
+    .partner-more span {
+        width: 14px;
+        font-size: 14px;
     }
 }

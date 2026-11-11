@@ -25,7 +25,8 @@
         <i class="bi bi-plus-circle"></i> Tambah Produk
     </a>
 
-    <a class="nav-link-custom" onclick="pindahHalaman('produk',this);setTimeout(()=>document.getElementById('searchNama').focus(),100)">
+    <a class="nav-link-custom"
+        onclick="pindahHalaman('produk',this);setTimeout(()=>document.getElementById('searchNama').focus(),100)">
         <i class="bi bi-search"></i> Pencarian Produk
     </a>
 
@@ -40,6 +41,11 @@
         <a href="#" class="nav-link-custom" onclick="logoutDummy(event)">
             <i class="bi bi-box-arrow-right"></i> Keluar
         </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+        
         <small class="text-muted px-3">UMKM Kita © 2026</small>
     </div>
 </aside>
