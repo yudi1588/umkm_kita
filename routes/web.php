@@ -18,6 +18,7 @@ Route::get('/dashboard_admin', [Dashboard_admin::class, 'index'])->name('dashboa
 
 
 Route::get('/produk', [ProductController::class, 'index'])->name('products');
+Route::get('/produk/{slug}', [ProductController::class, 'show'])->name('products.show');
 
 
 Route::get('/statistik', [StatistikController::class, 'index'])->name('statistiks');
