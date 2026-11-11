@@ -1,0 +1,220 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7fb;font-family:Arial,sans-serif;color:#263247}
+
+.sidebar{
+    width:260px;height:100vh;position:fixed;top:0;left:0;
+    background:#fff;padding:25px 18px;display:flex;flex-direction:column;
+    z-index:1000;border-right:1px solid #edf0f5;transition:.3s;
+    overflow-y:auto;
+}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:40px;padding:0 8px}
+.brand-icon{
+    width:43px;height:43px;background:#eaf1ff;color:#2563eb;
+    border-radius:12px;display:grid;place-items:center;font-size:22px;
+}
+.brand h4{font-weight:800;font-size:19px;margin:0}
+.brand h4 span{color:#2563eb}
+.brand small{font-size:10px;letter-spacing:1px}
+.menu-title{font-size:10px;font-weight:bold;color:#a0a8b8;margin:12px 12px;letter-spacing:1px}
+
+.nav-link-custom{
+    display:flex;align-items:center;gap:12px;padding:12px 14px;
+    border-radius:10px;color:#64748b;text-decoration:none;
+    font-size:14px;margin-bottom:5px;transition:.2s;cursor:pointer;
+}
+.nav-link-custom:hover,.nav-link-custom.active{
+    background:#edf3ff;color:#2563eb;
+}
+.nav-link-custom i{font-size:18px}
+
+.main{margin-left:260px;min-height:100vh}
+.topbar{
+    background:#fff;padding:18px 30px;display:flex;
+    justify-content:space-between;align-items:center;
+    border-bottom:1px solid #edf0f5;position:sticky;top:0;z-index:500;
+}
+.avatar{
+    width:40px;height:40px;border-radius:50%;background:#2563eb;
+    color:white;display:grid;place-items:center;font-weight:bold;
+}
+.content{padding:28px}
+
+.welcome{
+    background:linear-gradient(120deg,#1d4ed8,#3b82f6);
+    color:white;padding:30px;border-radius:16px;
+    position:relative;overflow:hidden;margin-bottom:30px;
+}
+.welcome h2{font-weight:bold}
+.welcome p{margin-bottom:0;color:#e0eaff}
+.welcome>i{position:absolute;right:40px;top:15px;font-size:110px;opacity:.13}
+
+.section-title{font-weight:bold;font-size:17px;margin:28px 0 15px}
+
+.stat-card{
+    background:white;padding:20px;border-radius:13px;
+    border:1px solid #edf0f5;height:100%;
+}
+.stat-icon{
+    width:40px;height:40px;display:grid;place-items:center;
+    border-radius:10px;font-size:20px;
+}
+.stat-icon.blue{background:#eaf1ff;color:#2563eb}
+.stat-icon.green{background:#e5f8ef;color:#16a34a}
+.stat-icon.yellow{background:#fff7df;color:#d69e00}
+.stat-icon.red{background:#ffe9e9;color:#dc2626}
+.stat-number{font-size:28px;font-weight:800;margin-top:12px}
+.stat-label{font-size:12px;color:#94a3b8}
+
+.panel{
+    background:white;border-radius:13px;
+    border:1px solid #edf0f5;overflow:hidden;
+}
+.panel-header{
+    padding:18px 20px;border-bottom:1px solid #edf0f5;
+    display:flex;justify-content:space-between;align-items:center;
+}
+.panel-header h5{font-weight:bold;font-size:16px;margin-bottom:0}
+
+.badge-active{
+    background:#dcfce7;color:#15803d;padding:5px 10px;
+    border-radius:20px;font-size:11px;font-weight:bold;
+    display:inline-block;
+}
+.badge-inactive{
+    background:#fee2e2;color:#dc2626;padding:5px 10px;
+    border-radius:20px;font-size:11px;font-weight:bold;
+    display:inline-block;
+}
+.product-image{
+    width:48px;height:48px;border-radius:9px;
+    object-fit:cover;background:#f1f5f9;
+}
+.table thead th{
+    font-size:11px;color:#94a3b8;background:#f8fafc;
+    padding:14px;white-space:nowrap;
+}
+.table tbody td{padding:14px;vertical-align:middle;font-size:13px}
+
+.page-section{display:none;animation:fadeIn .25s ease}
+.page-section.active{display:block}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(5px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.profile-item{
+    padding:17px;background:#f8fafc;border-radius:10px;
+    height:100%;
+}
+.profile-item small{color:#94a3b8}
+.profile-item div{font-weight:600;margin-top:7px;overflow-wrap:anywhere}
+
+.page-heading{margin-bottom:25px}
+.page-heading h4{font-weight:800;margin-bottom:5px}
+
+.empty-state{padding:50px 20px;text-align:center}
+.form-label{font-size:13px}
+
+/* FOTO USAHA */
+.foto-usaha{
+    width:90px;height:90px;object-fit:cover;
+    border-radius:16px;border:3px solid white;
+    background:#eaf1ff;
+}
+.foto-usaha-placeholder{
+    width:90px;height:90px;border-radius:16px;
+    background:white;color:#2563eb;
+    display:grid;place-items:center;font-size:38px;
+}
+
+/* STATUS RESTORAN */
+.operasional-card{
+    background:white;border:1px solid #edf0f5;
+    border-radius:13px;padding:22px;
+}
+.status-restoran{
+    padding:20px;border-radius:12px;
+    background:#f8fafc;display:flex;
+    align-items:center;justify-content:space-between;
+    gap:15px;flex-wrap:wrap;
+}
+.status-indicator{
+    display:inline-flex;align-items:center;
+    gap:10px;font-weight:bold;font-size:14px;
+}
+.status-dot{
+    width:11px;height:11px;border-radius:50%;
+    display:inline-block;
+}
+.status-dot.buka{
+    background:#16a34a;
+    box-shadow:0 0 0 4px #dcfce7;
+}
+.status-dot.tutup{
+    background:#dc2626;
+    box-shadow:0 0 0 4px #fee2e2;
+}
+.btn-status{
+    min-width:190px;padding:13px 20px;
+    font-weight:bold;font-size:14px;border-radius:10px;
+}
+.jadwal-item{
+    background:#f8fafc;padding:15px;border-radius:10px;
+}
+.jadwal-item small{color:#94a3b8}
+.jadwal-item strong{
+    display:block;margin-top:6px;font-size:17px;
+}
+
+@media(max-width:991px){
+    .sidebar{transform:translateX(-100%)}
+    .sidebar.show{transform:translateX(0)}
+    .main{margin-left:0}
+}
+@media(max-width:576px){
+    .content{padding:15px}
+    .topbar{padding:15px}
+    .welcome{padding:22px}
+    .welcome>i{right:5px;font-size:75px}
+    .stat-card{padding:14px}
+    .stat-number{font-size:23px}
+    .panel-header{gap:10px;flex-wrap:wrap}
+    .btn-status{width:100%}
+}
+
+/* FLOATING STATUS RESTORAN */
+.floating-status {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+
+    min-width: 200px;
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.floating-status:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Tampilan HP */
+@media (max-width: 576px) {
+    .floating-status {
+        right: 15px;
+        bottom: 15px;
+        min-width: auto;
+        padding: 12px 17px;
+        font-size: 12px;
+    }
+}
