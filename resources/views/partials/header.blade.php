@@ -1,6 +1,5 @@
-
-    <!-- STICKY HEADER WRAPPER -->
-    <div class="sticky-header">
+<!-- STICKY HEADER WRAPPER -->
+<div class="sticky-header">
 
     <!-- TOP BAR -->
     <div class="top-header">
@@ -11,10 +10,10 @@
                 pukul {{ now()->format('H.i') }} WIB
             </div>
 
-        <div class="top-header-right">
-        <i class="fa fa-map-marker"></i>
-        Platform Digital UMKM Kota Jember
-        </div>
+            <div class="top-header-right">
+                <i class="fa fa-map-marker"></i>
+                Platform Digital UMKM Kota Jember
+            </div>
         </div>
     </div>
 
@@ -26,21 +25,14 @@
                 <!-- LOGO -->
                 <div class="col-md-2 col-sm-3 col-xs-4">
                     <a href="{{ url('/') }}" class="logo">
-                        <img
-                            src="{{ asset('assets/user/img/umkm.png') }}"
-                            alt="Logo UMKM"
-                            class="img-responsive">
+                        <img src="{{ asset('assets/user/img/umkm.png') }}" alt="Logo UMKM" class="img-responsive">
                     </a>
                 </div>
 
                 <!-- SEARCH -->
                 <div class="col-md-5 col-sm-5 col-xs-8">
                     <form action="{{ route('products') }}" method="GET" class="header-search">
-                        <input
-                            type="text"
-                            name="q"
-                            placeholder="Cari Produk..."
-                            value="{{ request('q') }}"
+                        <input type="text" name="q" placeholder="Cari Produk..." value="{{ request('q') }}"
                             autocomplete="off">
 
                         <button type="submit">
@@ -60,9 +52,7 @@
                         <span>Keranjang</span>
                     </a>
 
-                    <a href="#"
-                    target="_blank"
-                    class="btn-login">
+                    <a href="{{ route('login') }}" class="btn-login">
                         Masuk
                     </a>
 
@@ -104,5 +94,5 @@
             </ul>
         </div>
     </nav>
-    </div>
-    </div>
+</div>
+</div>
