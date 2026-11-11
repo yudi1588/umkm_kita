@@ -131,8 +131,8 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="#">Statistik usaha</a>
+                <li class="{{ request()->routeIs('statistiks') ? 'active' : '' }}">
+                    <a href="{{ route('statistiks') }}">Statistik usaha</a>
                 </li>
 
             </ul>
