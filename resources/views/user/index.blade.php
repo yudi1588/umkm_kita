@@ -29,33 +29,42 @@
 <section class="category-search">
     <div class="category-search-container">
 
-        <!-- NAVIGASI KATEGORI -->
-        <div class="category-navigation">
-            <h3><span>Produk</span> Kategori</h3>
+<!-- NAVIGASI KATEGORI -->
+<div class="category-navigation">
 
-            <div class="category-nav-content">
+    <h3><span>Produk</span> Kategori</h3>
 
-                <button type="button"
-                        class="category-arrow"
-                        id="prevCategory">
-                    &#10094;
-                </button>
+    <div class="kategori-slider-wrapper">
 
-                <div class="category-scroll" id="categoryScroll">
-                    <a href="{{ route('products', ['category' => 'kuliner']) }}">Makanan & Kuliner</a>
-                    <a href="{{ route('products', ['category' => 'fashion']) }}">Fashion & Pakaian</a>
-                    <a href="{{ route('products', ['category' => 'kerajinan']) }}">Kerajinan & Craft</a>
-                    <a href="{{ route('products', ['category' => 'pertanian']) }}">Pertanian</a>
-                </div>
+        <button type="button"
+                class="category-arrow"
+                id="prevCategory">
+            &#10094;
+        </button>
 
-                <button type="button"
-                        class="category-arrow"
-                        id="nextCategory">
-                    &#10095;
-                </button>
-
-            </div>
+        <div class="kategori-slider" id="categoryScroll">
+            <a href="#">Makanan & Kuliner</a>
+            <a href="#">Fashion & Pakaian</a>
+            <a href="#">Oleh-Oleh Khas Jember</a>
+            <a href="#">Kerajinan & Craft</a>
+            <a href="#">Kecantikan & Perawatan</a>
+            <a href="#">Perlengkapan Rumah Tangga</a>
+            <a href="#">Elektronik & Peralatan Komputer</a>
+            <a href="#">Pertanian</a>
+            <a href="#">Furnitur</a>
+            <a href="#">Jasa</a>
         </div>
+
+        <button type="button"
+                class="category-arrow"
+                id="nextCategory">
+            &#10095;
+        </button>
+
+    </div>
+
+</div>
+
 
         <!-- PENCARIAN PRODUK -->
         <div class="product-search">
@@ -149,135 +158,271 @@
 
             <!-- MITRA 1 -->
             <div class="partner-card">
-                <div class="partner-image">
-                    <div class="partner-placeholder">DK</div>
-                    <span class="verified-badge">
-                        <i class="fa fa-check-circle"></i> Terverifikasi
-                    </span>
-                </div>
 
-                <div class="partner-info">
-                    <span class="partner-category">Makanan & Minuman</span>
-                    <h3>Dapur Kreatif</h3>
-                    <p>
-                        <i class="fa fa-map-marker"></i>
-                        Probolinggo, Jawa Timur
-                    </p>
-                    <a href="#" class="partner-link">
-                        Lihat Profil <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+    <div class="partner-image">
 
-            <!-- MITRA 2 -->
-            <div class="partner-card">
-                <div class="partner-image">
-                    <div class="partner-placeholder">KR</div>
-                    <span class="verified-badge">
-                        <i class="fa fa-check-circle"></i> Terverifikasi
-                    </span>
-                </div>
+        <!-- FOTO SAMPUL -->
+        <img
+            src="{{ asset('assets/user/img/sampulusaha/1.jpeg') }}"
+            alt="Sampul Dapur Kreatif"
+            class="partner-cover"
+        >
 
-                <div class="partner-info">
-                    <span class="partner-category">Kerajinan</span>
-                    <h3>Karya Rakyat</h3>
-                    <p>
-                        <i class="fa fa-map-marker"></i>
-                        Kraksaan, Jawa Timur
-                    </p>
-                    <a href="#" class="partner-link">
-                        Lihat Profil <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+        <!-- FOTO PROFIL -->
+        <div class="partner-profile">
+            <img
+                src="{{ asset('assets/user/img/profilusaha/1.jpeg') }}"
+                alt="Profil Dapur Kreatif"
+                class="partner-avatar"
+            >
+        </div>
 
-            <!-- MITRA 3 -->
-            <div class="partner-card">
-                <div class="partner-image">
-                    <div class="partner-placeholder">BS</div>
-                    <span class="verified-badge">
-                        <i class="fa fa-check-circle"></i> Terverifikasi
-                    </span>
-                </div>
+        <!-- STATUS VERIFIKASI -->
+        <span class="verified-badge">
+            <i class="fa fa-check-circle"></i> Terverifikasi
+        </span>
 
-                <div class="partner-info">
-                    <span class="partner-category">Fashion</span>
-                    <h3>Batik Sejahtera</h3>
-                    <p>
-                        <i class="fa fa-map-marker"></i>
-                        Pajarakan, Jawa Timur
-                    </p>
-                    <a href="#" class="partner-link">
-                        Lihat Profil <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+    </div>
 
-                <!-- MITRA 4 -->
-            <div class="partner-card">
-                <div class="partner-image">
-                    <div class="partner-placeholder">DK</div>
-                    <span class="verified-badge">
-                        <i class="fa fa-check-circle"></i> Terverifikasi
-                    </span>
-                </div>
+    <div class="partner-info">
 
-                <div class="partner-info">
-                    <span class="partner-category">Makanan & Minuman</span>
-                    <h3>Dapur Kreatif</h3>
-                    <p>
-                        <i class="fa fa-map-marker"></i>
-                        Probolinggo, Jawa Timur
-                    </p>
-                    <a href="#" class="partner-link">
-                        Lihat Profil <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+        <span class="partner-category">Makanan & Minuman</span>
 
-            <!-- MITRA 5 -->
-            <div class="partner-card">
-                <div class="partner-image">
-                    <div class="partner-placeholder">KR</div>
-                    <span class="verified-badge">
-                        <i class="fa fa-check-circle"></i> Terverifikasi
-                    </span>
-                </div>
+        <h3>Dapur Kreatif</h3>
 
-                <div class="partner-info">
-                    <span class="partner-category">Kerajinan</span>
-                    <h3>Karya Rakyat</h3>
-                    <p>
-                        <i class="fa fa-map-marker"></i>
-                        Kraksaan, Jawa Timur
-                    </p>
-                    <a href="#" class="partner-link">
-                        Lihat Profil <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+        <p>
+            <i class="fa fa-map-marker"></i>
+            Kaliwates, Jember
+        </p>
 
-            <!-- MITRA 6 -->
-            <div class="partner-card">
-                <div class="partner-image">
-                    <div class="partner-placeholder">BS</div>
-                    <span class="verified-badge">
-                        <i class="fa fa-check-circle"></i> Terverifikasi
-                    </span>
-                </div>
+        <a href="#" class="partner-link">
+            Lihat Profil <i class="fa fa-arrow-right"></i>
+        </a>
 
-                <div class="partner-info">
-                    <span class="partner-category">Fashion</span>
-                    <h3>Batik Sejahtera</h3>
-                    <p>
-                        <i class="fa fa-map-marker"></i>
-                        Pajarakan, Jawa Timur
-                    </p>
-                    <a href="#" class="partner-link">
-                        Lihat Profil <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+    </div>
+
+</div>
+
+          
+<!-- MITRA 2 -->
+<div class="partner-card">
+    <div class="partner-image">
+
+        <!-- FOTO SAMPUL -->
+        <img
+            src="{{ asset('assets/user/img/sampulusaha/2.jpeg') }}"
+            alt="Sampul Karya Rakyat"
+            class="partner-cover"
+        >
+
+        <!-- FOTO PROFIL -->
+        <div class="partner-profile">
+            <img
+                src="{{ asset('assets/user/img/profilusaha/2.jpeg') }}"
+                alt="Profil Karya Rakyat"
+                class="partner-avatar"
+            >
+        </div>
+
+        <!-- STATUS VERIFIKASI -->
+        <span class="verified-badge">
+            <i class="fa fa-check-circle"></i> Terverifikasi
+        </span>
+
+    </div>
+
+    <div class="partner-info">
+        <span class="partner-category">Kerajinan</span>
+
+        <h3>Karya Rakyat</h3>
+
+        <p>
+            <i class="fa fa-map-marker"></i>
+            Ambulu, Jember
+        </p>
+
+        <a href="#" class="partner-link">
+            Lihat Profil <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+
+<!-- MITRA 3 -->
+<div class="partner-card">
+    <div class="partner-image">
+
+        <!-- FOTO SAMPUL -->
+        <img
+            src="{{ asset('assets/user/img/sampulusaha/5.jpeg') }}"
+            alt="Sampul Batik Sejahtera"
+            class="partner-cover"
+        >
+
+        <!-- FOTO PROFIL -->
+        <div class="partner-profile">
+            <img
+                src="{{ asset('assets/user/img/profilusaha/3.jpg') }}"
+                alt="Profil Batik Sejahtera"
+                class="partner-avatar"
+            >
+        </div>
+
+        <!-- STATUS VERIFIKASI -->
+        <span class="verified-badge">
+            <i class="fa fa-check-circle"></i> Terverifikasi
+        </span>
+
+    </div>
+
+    <div class="partner-info">
+        <span class="partner-category">Makanan</span>
+
+        <h3>Jawara Telur</h3>
+
+        <p>
+            <i class="fa fa-map-marker"></i>
+            Patrang, Jember
+        </p>
+
+        <a href="#" class="partner-link">
+            Lihat Profil <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+
+<!-- MITRA 4 -->
+<div class="partner-card">
+    <div class="partner-image">
+
+        <!-- FOTO SAMPUL -->
+        <img
+            src="{{ asset('assets/user/img/sampulusaha/4.jpeg') }}"
+            alt="Sampul Dapur Kreatif"
+            class="partner-cover"
+        >
+
+        <!-- FOTO PROFIL -->
+        <div class="partner-profile">
+            <img
+                src="{{ asset('assets/user/img/profilusaha/4.jpeg') }}"
+                alt="Profil Dapur Kreatif"
+                class="partner-avatar"
+            >
+        </div>
+
+        <!-- STATUS VERIFIKASI -->
+        <span class="verified-badge">
+            <i class="fa fa-check-circle"></i> Terverifikasi
+        </span>
+
+    </div>
+
+    <div class="partner-info">
+        <span class="partner-category">Makanan & Minuman</span>
+
+        <h3>Dapur Kreatif</h3>
+
+        <p>
+            <i class="fa fa-map-marker"></i>
+            Panti, Jember
+        </p>
+
+        <a href="#" class="partner-link">
+            Lihat Profil <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+
+<!-- MITRA 5 -->
+<div class="partner-card">
+    <div class="partner-image">
+
+        <!-- FOTO SAMPUL -->
+        <img
+            src="{{ asset('assets/user/img/sampulusaha/3.jpeg') }}"
+            alt="Sampul Karya Rakyat"
+            class="partner-cover"
+        >
+
+        <!-- FOTO PROFIL -->
+        <div class="partner-profile">
+            <img
+                src="{{ asset('assets/user/img/profilusaha/5.jpeg') }}"
+                alt="Profil Karya Rakyat"
+                class="partner-avatar"
+            >
+        </div>
+
+        <!-- STATUS VERIFIKASI -->
+        <span class="verified-badge">
+            <i class="fa fa-check-circle"></i> Terverifikasi
+        </span>
+
+    </div>
+
+    <div class="partner-info">
+        <span class="partner-category">Pertanian</span>
+
+        <h3>Farm Rakyat</h3>
+
+        <p>
+            <i class="fa fa-map-marker"></i>
+            Ajung, Jember
+        </p>
+
+        <a href="#" class="partner-link">
+            Lihat Profil <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+
+<!-- MITRA 6 -->
+<div class="partner-card">
+    <div class="partner-image">
+
+        <!-- FOTO SAMPUL -->
+        <img
+            src="{{ asset('assets/user/img/sampulusaha/6.jpeg') }}"
+            alt="Sampul Batik Sejahtera"
+            class="partner-cover"
+        >
+
+        <!-- FOTO PROFIL -->
+        <div class="partner-profile">
+            <img
+                src="{{ asset('assets/user/img/profilusaha/6.jpeg') }}"
+                alt="Profil Batik Sejahtera"
+                class="partner-avatar"
+            >
+        </div>
+
+        <!-- STATUS VERIFIKASI -->
+        <span class="verified-badge">
+            <i class="fa fa-check-circle"></i> Terverifikasi
+        </span>
+
+    </div>
+
+    <div class="partner-info">
+        <span class="partner-category">Fashion</span>
+
+        <h3>Batik Sejahtera</h3>
+
+        <p>
+            <i class="fa fa-map-marker"></i>
+            Panti, Jember
+        </p>
+
+        <a href="#" class="partner-link">
+            Lihat Profil <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
         </div>
 
        <div class="partner-more">
@@ -291,13 +436,11 @@
     <a href="#">4</a>
     <a href="#">5</a>
     <a href="#">6</a>
-    <a href="#">7</a>
-    <a href="#">8</a>
+    <span>...</span>
+    
     <a href="#">9</a>
     <a href="#">10</a>
     <a href="#">11</a>
-
-    <span>...</span>
 
     <a href="#" class="arrow">
         <i class="fa fa-angle-right"></i>
