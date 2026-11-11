@@ -1,6 +1,5 @@
-
-    <!-- STICKY HEADER WRAPPER -->
-    <div class="sticky-header">
+<!-- STICKY HEADER WRAPPER -->
+<div class="sticky-header">
 
     <!-- TOP BAR -->
     <div class="top-header">
@@ -11,10 +10,10 @@
                 pukul {{ now()->format('H.i') }} WIB
             </div>
 
-        <div class="top-header-right">
-        <i class="fa fa-map-marker"></i>
-        Platform Digital UMKM Kota Jember
-        </div>
+            <div class="top-header-right">
+                <i class="fa fa-map-marker"></i>
+                Platform Digital UMKM Kota Jember
+            </div>
         </div>
     </div>
 
@@ -26,21 +25,14 @@
                 <!-- LOGO -->
                 <div class="col-md-2 col-sm-3 col-xs-4">
                     <a href="{{ url('/') }}" class="logo">
-                        <img
-                            src="{{ asset('assets/user/img/umkm.png') }}"
-                            alt="Logo UMKM"
-                            class="img-responsive">
+                        <img src="{{ asset('assets/user/img/umkm.png') }}" alt="Logo UMKM" class="img-responsive">
                     </a>
                 </div>
 
                 <!-- SEARCH -->
                 <div class="col-md-5 col-sm-5 col-xs-8">
                     <form action="{{ route('products') }}" method="GET" class="header-search">
-                        <input
-                            type="text"
-                            name="q"
-                            placeholder="Cari Produk..."
-                            value="{{ request('q') }}"
+                        <input type="text" name="q" placeholder="Cari Produk..." value="{{ request('q') }}"
                             autocomplete="off">
 
                         <button type="submit">
@@ -52,17 +44,59 @@
                 <!-- KERANJANG DAN KONTAK -->
                 <div class="col-md-5 col-sm-4 col-xs-12 header-action">
 
-                    <a href="#" class="header-cart">
-                        <span class="cart-icon">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </span>
-                        <span>Keranjang</span>
-                    </a>
+                    
+<!-- KERANJANG BELANJA -->
+<details class="cart-menu">
 
-                    <a href="#"
-                    target="_blank"
-                    class="btn-login">
+    <!-- IKON KERANJANG -->
+    <summary class="header-cart">
+        <span class="cart-icon">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </span>
+        <span>Keranjang</span>
+    </summary>
+
+    <!-- DROPDOWN KERANJANG -->
+    <div class="cart-dropdown">
+
+        <!-- ISI KERANJANG -->
+        <div class="cart-body">
+
+            <!-- KERANJANG KOSONG -->
+            <div class="cart-empty" id="cartEmpty">
+                <h3>Keranjang Belanja kosong!</h3>
+            </div>
+
+            <!-- DAFTAR PRODUK -->
+            <div class="cart-items" id="cartItems"></div>
+
+        </div>
+
+        <!-- SUBTOTAL -->
+        <div class="cart-subtotal">
+            <strong>
+                SUBTOTAL:
+                <span id="cartSubtotal">Rp 0</span>
+            </strong>
+        </div>
+
+        <!-- TOMBOL -->
+        <div class="cart-footer">
+            <a href="#" class="cart-view">
+                Lihat Keranjang
+            </a>
+
+            <a href="#" class="cart-checkout">
+                Checkout <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</details>
+
+                    <a href="{{ route('login') }}" class="btn-login">
                         Masuk
                     </a>
 
@@ -104,5 +138,5 @@
             </ul>
         </div>
     </nav>
-    </div>
-    </div>
+</div>
+</div>

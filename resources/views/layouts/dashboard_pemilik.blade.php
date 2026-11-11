@@ -923,12 +923,11 @@ window.addEventListener('storage',function(e){
 // LOGOUT SIMULASI
 // =====================================
 
-function logoutDummy(e){
-
+function logoutDummy(e) {
     e.preventDefault();
 
-    if(confirm('Apakah Anda yakin ingin keluar dari dashboard?')){
-        alert('Ini masih mode dummy. Fitur logout memerlukan sistem autentikasi.');
+    if (confirm('Apakah Anda yakin ingin keluar dari dashboard?')) {
+        document.getElementById('logout-form').submit();
     }
 }
 
