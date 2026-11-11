@@ -6,6 +6,7 @@
 
     <title>@yield('title', 'UMKM Kita')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png"href="{{ asset('assets/user/img/logoumkm.png') }}">
     @vite(['resources/css/styleheader.css', 'resources/css/stylefooter.css', 'resources/css/stylehome.css', 'resources/js/home.js', 'resources/js/home.js', 
     'resources/js/app.js'])
 </head>
