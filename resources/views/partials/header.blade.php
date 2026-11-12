@@ -45,56 +45,124 @@
                 <div class="col-md-5 col-sm-4 col-xs-12 header-action">
 
                     
-<!-- KERANJANG BELANJA -->
-<details class="cart-menu">
 
-    <!-- IKON KERANJANG -->
+
+<!-- MINI SHOPPING CART -->
+<details class="cart-menu" id="headerCart">
+
+    <!-- ICON KERANJANG -->
     <summary class="header-cart">
         <span class="cart-icon">
             <i class="fa fa-shopping-cart"></i>
             <span class="cart-count" id="cartCount">0</span>
         </span>
+
         <span>Keranjang</span>
+        <i class="fa fa-angle-down cart-arrow"></i>
     </summary>
 
     <!-- DROPDOWN KERANJANG -->
     <div class="cart-dropdown">
 
-        <!-- ISI KERANJANG -->
+        <!-- HEADER DROPDOWN -->
+        <div class="cart-dropdown-header">
+
+            <div>
+                <h3>Keranjang Belanja</h3>
+                <span id="cartItemSummary">0 produk dipilih</span>
+            </div>
+
+            <button
+                type="button"
+                id="clearCartButton"
+                class="cart-clear-button"
+            >
+                <i class="fa fa-trash-o"></i>
+                Kosongkan
+            </button>
+
+        </div>
+
+        <!-- DAFTAR PRODUK -->
         <div class="cart-body">
 
             <!-- KERANJANG KOSONG -->
             <div class="cart-empty" id="cartEmpty">
-                <h3>Keranjang Belanja kosong!</h3>
+
+                <div class="cart-empty-icon">
+                    <i class="fa fa-shopping-basket"></i>
+                </div>
+
+                <h4>Keranjang masih kosong</h4>
+
+                <p>
+                    Yuk, temukan produk UMKM favoritmu!
+                </p>
+
             </div>
 
-            <!-- DAFTAR PRODUK -->
+            <!-- ITEM PRODUK DIISI JAVASCRIPT -->
             <div class="cart-items" id="cartItems"></div>
 
         </div>
 
-        <!-- SUBTOTAL -->
-        <div class="cart-subtotal">
-            <strong>
-                SUBTOTAL:
-                <span id="cartSubtotal">Rp 0</span>
-            </strong>
-        </div>
+        <!-- FOOTER -->
+        <div class="cart-dropdown-footer">
 
-        <!-- TOMBOL -->
-        <div class="cart-footer">
-            <a href="#" class="cart-view">
-                Lihat Keranjang
-            </a>
+            <div class="cart-subtotal">
 
-            <a href="#" class="cart-checkout">
-                Checkout <i class="fa fa-arrow-circle-right"></i>
-            </a>
+                <div>
+                    <span>Subtotal</span>
+                    <small id="cartTotalItems">0 barang</small>
+                </div>
+
+                <strong id="cartSubtotal">Rp 0</strong>
+
+            </div>
+
+            <div class="cart-footer">
+
+                <button
+                    type="button"
+                    class="cart-view"
+                    id="continueShopping"
+                >
+                    Lanjut Belanja
+                </button>
+
+                <form
+                    action="{{ route('checkout.cart') }}"
+                    method="POST"
+                    id="cartCheckoutForm"
+                >
+                    @csrf
+
+                    <input
+                        type="hidden"
+                        name="items"
+                        id="checkoutCartItems"
+                    >
+
+                    <button
+                        type="submit"
+                        class="cart-checkout"
+                        id="cartCheckoutButton"
+                    >
+                        Checkout
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
         </div>
 
     </div>
 
 </details>
+
+
 
                     <a href="{{ route('login') }}" class="btn-login">
                         Masuk
@@ -140,3 +208,36 @@
     </nav>
 </div>
 </div>
+
+<script>
+    function checkoutCart() {
+
+    /*
+     * Contoh format data keranjang:
+     * [
+     *   { slug: "keripik-singkong-umkm", quantity: 2 },
+     *   { slug: "kue-kering-homemade", quantity: 1 }
+     * ]
+     *
+     * Sesuaikan nama localStorage dan struktur datanya
+     * dengan JavaScript keranjang yang sudah kamu miliki.
+     */
+
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    if (!cart.length) {
+        alert('Keranjang belanja masih kosong!');
+        return;
+    }
+
+    const checkoutItems = cart.map(item => ({
+        slug: item.slug,
+        quantity: Number(item.quantity || 1)
+    }));
+
+    document.getElementById('checkoutCartItems').value =
+        JSON.stringify(checkoutItems);
+
+    document.getElementById('cartCheckoutForm').submit();
+}
+</script>

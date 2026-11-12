@@ -171,4 +171,181 @@ class ProductController extends Controller
             ],
         ];
     }
+
+    /**
+ * Checkout langsung dari detail produk.
+ */
+
+/**
+ * Checkout langsung dari detail produk.
+ */
+public function checkoutSingle(Request $request, string $slug)
+{
+    $validated = $request->validate([
+        'quantity' => ['required', 'integer', 'min:1', 'max:99'],
+    ]);
+
+    $product = collect($this->products())->firstWhere('slug', $slug);
+
+    abort_if($product === null, 404);
+
+    $quantity = (int) $validated['quantity'];
+
+    session([
+        'checkout_items' => [
+            [
+                'slug' => $product['slug'],
+                'name' => $product['name'],
+                'price' => $product['price'],
+                'image' => $product['image'],
+                'location' => $product['location'],
+                'quantity' => $quantity,
+            ],
+        ],
+    ]);
+
+    return redirect()->route('checkout.index');
+}
+
+
+/**
+ * Checkout dari keranjang.
+ */
+public function checkoutCart(Request $request)
+{
+    $validated = $request->validate([
+        'items' => ['required', 'json'],
+    ]);
+
+    $cartItems = json_decode($validated['items'], true);
+
+    if (!is_array($cartItems) || empty($cartItems)) {
+        return back()->with('error', 'Keranjang belanja kosong.');
+    }
+
+    $allProducts = collect($this->products());
+    $checkoutItems = [];
+
+    foreach ($cartItems as $item) {
+
+        if (
+            !is_array($item) ||
+            empty($item['slug']) ||
+            !isset($item['quantity']) ||
+            !is_numeric($item['quantity'])
+        ) {
+            continue;
+        }
+
+        $product = $allProducts->firstWhere('slug', $item['slug']);
+
+        if (!$product) {
+            continue;
+        }
+
+        $quantity = (int) $item['quantity'];
+
+        if ($quantity < 1 || $quantity > 99) {
+            continue;
+        }
+
+        $checkoutItems[] = [
+            'slug' => $product['slug'],
+            'name' => $product['name'],
+            'price' => $product['price'],
+            'image' => $product['image'],
+            'location' => $product['location'],
+            'quantity' => $quantity,
+        ];
+    }
+
+    if (empty($checkoutItems)) {
+        return back()->with('error', 'Produk keranjang tidak valid.');
+    }
+
+    session([
+        'checkout_items' => $checkoutItems,
+    ]);
+
+    return redirect()->route('checkout.index');
+}
+
+
+/**
+ * Halaman checkout.
+ */
+public function checkout()
+{
+    $items = session('checkout_items', []);
+
+    if (empty($items)) {
+        return redirect()->route('products')
+            ->with('error', 'Tidak ada produk untuk checkout.');
+    }
+
+    $subtotal = collect($items)->sum(function ($item) {
+        return $item['price'] * $item['quantity'];
+    });
+
+    return view('user.checkout', compact('items', 'subtotal'));
+}
+
+
+
+/**
+ * Memproses pesanan.
+ */
+public function processCheckout(Request $request)
+{
+    $validated = $request->validate([
+        'customer_name' => ['required', 'string', 'max:100'],
+        'phone' => ['required', 'string', 'max:20'],
+        'address' => ['required', 'string', 'max:500'],
+        'notes' => ['nullable', 'string', 'max:500'],
+        'payment_method' => ['required', 'in:cod,transfer'],
+    ]);
+
+    $items = session('checkout_items', []);
+
+    if (empty($items)) {
+        return redirect()->route('products.index')
+            ->with('error', 'Keranjang checkout tidak ditemukan.');
+    }
+
+    $subtotal = collect($items)->sum(function ($item) {
+        return $item['price'] * $item['quantity'];
+    });
+
+    /*
+     * Saat ini pesanan disimpan sementara di session.
+     * Nantinya bagian ini dapat dihubungkan ke tabel orders
+     * dan order_items di database.
+     */
+    $order = [
+        'order_number' => 'ORD-' . strtoupper(Str::random(8)),
+        'customer' => $validated,
+        'items' => $items,
+        'subtotal' => $subtotal,
+        'created_at' => now()->toDateTimeString(),
+    ];
+
+    session([
+        'last_order' => $order,
+    ]);
+
+    session()->forget('checkout_items');
+
+    return redirect()->route('checkout.success');
+}
+
+public function checkoutSuccess()
+{
+    $order = session('last_order');
+
+    if (!$order) {
+        return redirect()->route('products.index');
+    }
+
+    return view('user.checkout-success', compact('order'));
+}
 }

@@ -1,0 +1,418 @@
+    .checkout-page {
+        background: #fff;
+        min-height: 650px;
+        padding: 40px 20px 60px;
+        color: #30343b;
+    }
+
+    .checkout-container {
+        max-width: 1060px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 15px;
+        align-items: start;
+    }
+
+    /* BAGIAN PENGIRIMAN */
+    .checkout-left {
+        padding: 25px 0;
+    }
+
+    .checkout-section-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 25px;
+        text-transform: uppercase;
+    }
+
+    .checkout-input {
+        width: 100%;
+        height: 40px;
+        padding: 0 14px;
+        margin-bottom: 12px;
+        border: 1px solid #e5e5e5;
+        border-radius: 0;
+        background: #fff;
+        font-size: 13px;
+        color: #333;
+        outline: none;
+        transition: .2s;
+    }
+
+    .checkout-input:focus,
+    .checkout-select:focus,
+    .checkout-textarea:focus {
+        border-color: #135bd8;
+        box-shadow: 0 0 0 2px rgba(19, 91, 216, .07);
+    }
+
+    .checkout-input::placeholder,
+    .checkout-textarea::placeholder {
+        color: #999;
+    }
+
+    .checkout-subtitle {
+        font-size: 21px;
+        font-weight: 700;
+        margin: 17px 0 25px;
+        text-transform: uppercase;
+    }
+
+    .checkout-textarea {
+        width: 100%;
+        min-height: 85px;
+        padding: 14px;
+        border: 1px solid #e5e5e5;
+        outline: none;
+        resize: vertical;
+        font-size: 13px;
+    }
+
+    /* AUTOCOMPLETE ALAMAT */
+    .checkout-address-field {
+        position: relative;
+        margin-bottom: 12px;
+    }
+
+    .checkout-address-row {
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .checkout-address-row .checkout-input {
+        flex: 1;
+        min-width: 0;
+        margin-bottom: 0;
+    }
+
+    .btn-current-location {
+        min-width: 43px;
+        height: 40px;
+        padding: 0 13px;
+        border: 1px solid #135bd8;
+        border-radius: 3px;
+        background: #fff;
+        color: #135bd8;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .btn-current-location:hover {
+        background: #135bd8;
+        color: white;
+    }
+
+    .btn-current-location:disabled {
+        opacity: .6;
+        cursor: wait;
+    }
+
+    .btn-current-location i {
+        font-size: 17px;
+    }
+
+    .location-button-label {
+        font-size: 11px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    /* DROPDOWN SARAN ALAMAT */
+    .address-suggestions {
+        position: absolute;
+        top: 44px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #fff;
+        border: 1px solid #e1e5eb;
+        border-radius: 7px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .address-suggestions[hidden] {
+        display: none;
+    }
+
+    .address-suggestion-item {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        gap: 12px;
+        padding: 12px 14px;
+        border: none;
+        border-bottom: 1px solid #f0f0f0;
+        background: #fff;
+        text-align: left;
+        cursor: pointer;
+        transition: .15s;
+    }
+
+    .address-suggestion-item:last-child {
+        border-bottom: none;
+    }
+
+    .address-suggestion-item:hover {
+        background: #f1f6ff;
+    }
+
+    .address-suggestion-icon {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #edf4ff;
+        color: #135bd8;
+        border-radius: 50%;
+    }
+
+    .address-suggestion-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    .address-suggestion-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .address-suggestion-detail {
+        font-size: 11px;
+        line-height: 1.5;
+        color: #858585;
+    }
+
+    .address-suggestion-loading,
+    .address-suggestion-empty {
+        padding: 15px;
+        color: #888;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .location-status {
+        display: none;
+        margin: 8px 0 12px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .location-status.success {
+        display: block;
+        color: #16864f;
+    }
+
+    .location-status.error {
+        display: block;
+        color: #dc3545;
+    }
+
+    .location-status.info {
+        display: block;
+        color: #135bd8;
+    }
+
+    .location-status small {
+        display: block;
+        color: #888;
+        margin-top: 3px;
+    }
+
+    /* BAGIAN PESANAN */
+    .checkout-right {
+        border: 1px solid #e5e5e5;
+        padding: 25px 27px 27px;
+        margin-top: 2px;
+    }
+
+    .checkout-order-title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 35px;
+    }
+
+    .checkout-table-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .checkout-product-list {
+        margin-bottom: 30px;
+    }
+
+    .checkout-product-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 13px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .checkout-product-name {
+        flex: 1;
+        color: #383838;
+        font-weight: 600;
+    }
+
+    .checkout-product-name span {
+        color: #888;
+        font-weight: 500;
+        margin-right: 3px;
+    }
+
+    .checkout-product-price {
+        white-space: nowrap;
+        color: #777;
+    }
+
+    /* PEMBAYARAN DAN PENGIRIMAN */
+    .checkout-option-group {
+        margin-bottom: 25px;
+    }
+
+    .checkout-option-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 9px;
+        color: #3c3c3c;
+    }
+
+    .checkout-select {
+        width: 100%;
+        height: 38px;
+        padding: 0 12px;
+        border: 1px solid #dedede;
+        border-radius: 4px;
+        background: #fff;
+        color: #777;
+        outline: none;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+    /* TOTAL */
+    .checkout-shipping-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        margin-top: 28px;
+        margin-bottom: 25px;
+        color: #777;
+    }
+
+    .checkout-shipping-row strong {
+        font-size: 12px;
+        color: #444;
+    }
+
+    .checkout-shipping-note {
+        color: #999;
+        font-size: 11px;
+        margin-top: -15px;
+        margin-bottom: 22px;
+        line-height: 1.5;
+    }
+
+    .checkout-total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 35px;
+    }
+
+    .checkout-total-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #444;
+    }
+
+    .checkout-total-price {
+        font-size: 22px;
+        font-weight: 800;
+        color: #bd1e35;
+    }
+
+    /* TOMBOL WHATSAPP */
+    .checkout-whatsapp-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        width: 100%;
+        min-height: 43px;
+        border: none;
+        border-radius: 30px;
+        background: #084eea;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: .2s ease;
+    }
+
+    .checkout-whatsapp-button:hover {
+        background: #063cc0;
+        transform: translateY(-1px);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .checkout-page {
+            padding: 20px 15px 40px;
+        }
+
+        .checkout-container {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .checkout-left {
+            padding: 10px 0;
+        }
+
+        .checkout-right {
+            margin-top: 0;
+            padding: 22px 18px;
+        }
+
+        .checkout-section-title,
+        .checkout-order-title {
+            font-size: 19px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .location-button-label {
+            display: none;
+        }
+
+        .btn-current-location {
+            min-width: 42px;
+            padding: 0 10px;
+        }
+
+        .checkout-right {
+            padding: 18px 14px;
+        }
+    }

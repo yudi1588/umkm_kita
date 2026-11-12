@@ -20,6 +20,26 @@ Route::get('/dashboard_admin', [Dashboard_admin::class, 'index'])->name('dashboa
 Route::get('/produk', [ProductController::class, 'index'])->name('products');
 Route::get('/produk/{slug}', [ProductController::class, 'show'])->name('products.show');
 
+// Checkout satu produk dari halaman detail
+Route::post('/checkout/single/{slug}', [ProductController::class, 'checkoutSingle'])
+    ->name('checkout.single');
+
+// Checkout seluruh produk dari keranjang
+Route::post('/checkout/cart', [ProductController::class, 'checkoutCart'])
+    ->name('checkout.cart');
+
+// Halaman checkout
+Route::get('/checkout', [ProductController::class, 'checkout'])
+    ->name('checkout.index');
+
+// Proses pesanan
+Route::post('/checkout/process', [ProductController::class, 'processCheckout'])
+    ->name('checkout.process');
+
+Route::get('/checkout/success', [ProductController::class, 'checkoutSuccess'])
+    ->name('checkout.success');
+    
+
 
 Route::get('/statistik', [StatistikController::class, 'index'])->name('statistiks');
 
@@ -57,3 +77,5 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard_pemilik', [Dashboard_pemilik::class, 'index'])->name('dashboard-pemilik');
     });
 });
+
+
