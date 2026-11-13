@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png"href="{{ asset('assets/user/img/logoumkm.png') }}">
     @vite(['resources/css/styleheader.css', 'resources/css/stylefooter.css', 'resources/css/stylehome.css', 'resources/js/home.js', 'resources/js/home.js', 
+<<<<<<< HEAD
     'resources/js/statistik.js', 'resources/css/stylestatistik.css','resources/js/app.js' , 'resources/css/checkout.css'])
+=======
+    'resources/js/statistik.js', 'resources/css/stylestatistik.css', 'resources/js/checkout.js', 'resources/css/stylecheckout.css', 'resources/js/app.js'])
+>>>>>>> a0ba721 (Menambahkan tampilan halaman checkout)
 </head>
 <body>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard_pemilik;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StatistikController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 // Halaman publik
@@ -42,6 +43,8 @@ Route::get('/checkout/success', [ProductController::class, 'checkoutSuccess'])
 
 
 Route::get('/statistik', [StatistikController::class, 'index'])->name('statistiks');
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkouts');
 
 // Khusus tamu (belum login)
 Route::middleware('guest')->group(function () {

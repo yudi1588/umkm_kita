@@ -156,6 +156,12 @@
 
             </div>
 
+<<<<<<< HEAD
+=======
+            <a href="{{ route('checkouts') }}" class="cart-checkout">
+                Checkout <i class="fa fa-arrow-circle-right"></i>
+            </a>
+>>>>>>> a0ba721 (Menambahkan tampilan halaman checkout)
         </div>
 
     </div>
